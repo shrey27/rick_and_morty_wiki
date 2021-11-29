@@ -1,29 +1,7 @@
-// import { Heading } from 'rebass';
-// import Pagination from 'react-bootstrap/Pagination';
-// let i = 0;
-// let pageNumber = 1;
-// export default function PaginationBar() {
-//   return (
-//     <Pagination size='lg'>
-//       <Pagination.First />
-//       <Pagination.Prev onClick={() => console.log(--i)} />
-//       <Pagination.Item active={i === pageNumber}>{1}</Pagination.Item>
-//       <Pagination.Item active={i === pageNumber}>{2}</Pagination.Item>
-//       <Pagination.Item active={i === pageNumber}>{3}</Pagination.Item>
-//       <Pagination.Ellipsis onClick={() => console.log(++i)}/>
-//       <Pagination.Item active={i === pageNumber}>{18}</Pagination.Item>
-//       <Pagination.Item active={i === pageNumber}>{19}</Pagination.Item>
-//       <Pagination.Item active={i === pageNumber}>{20}</Pagination.Item>
-//       <Pagination.Next onClick={() => console.log(++i)} />
-//       <Pagination.Last />
-//     </Pagination>
-//   );
-// }
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactPaginate from 'react-paginate';
 
-const Pagination = ({ pageNumber, info, updatePageNumber }) => {
+const Pagination = ({ updatePageNumber }) => {
   let handlePageChange = (data) => {
     updatePageNumber(data.selected + 1);
   };
@@ -38,26 +16,6 @@ const Pagination = ({ pageNumber, info, updatePageNumber }) => {
   // }, []);
 
   return (
-    // <ReactPaginate
-    //   previousLabel='Previous'
-    //   nextLabel='Next'
-    //   pageClassName='page-item'
-    //   pageLinkClassName='page-link'
-    //   previousClassName='page-item'
-    //   previousLinkClassName='page-link'
-    //   nextClassName='page-item'
-    //   nextLinkClassName='page-link'
-    //   breakLabel='...'
-    //   breakClassName='page-item'
-    //   breakLinkClassName='page-link'
-    //   pageCount={20}
-    //   marginPagesDisplayed={2}
-    //   pageRangeDisplayed={3}
-    //   onPageChange={handlePageChange}
-    //   containerClassName='pagination'
-    //   activeClassName='active'
-    //   //forcePage={pageOffset}
-    // />
     <>
       <ReactPaginate
         className='pagination justify-content-center my-4 gap-4'

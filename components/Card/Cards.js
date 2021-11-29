@@ -1,5 +1,4 @@
 import { Image, Flex, Box, Heading, Text } from 'rebass';
-import Pagination from '../Pagination/Pagination';
 
 export default function Cards(props) {
   let { results } = props;

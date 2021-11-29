@@ -1,4 +1,4 @@
-import { Link, Flex, Button } from 'rebass';
+import { Link, Flex } from 'rebass';
 import ActiveLink from './ActiveLink';
 
 export default function Navbar() {

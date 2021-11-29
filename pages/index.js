@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Search from '../components/Search/Search';
 import Cards from '../components/Card/Cards';
 import PaginationBar from '../components/Pagination/Pagination';
