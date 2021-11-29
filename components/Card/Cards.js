@@ -1,29 +1,22 @@
 import { Image, Flex, Box, Heading, Text } from 'rebass';
+import Pagination from '../Pagination/Pagination';
 
 export default function Cards(props) {
   let { results } = props;
   return (
     <Flex
       flexWrap={['no-wrap', 'wrap', 'wrap']}
-      width={['100%', '70%']}
+      width={['100%']}
       flexDirection={['column', 'row', 'row']}
-      alignItems='flex-start'
-      justifyContent='initial'
-      sx={{
-        position: 'absolute',
-        right: '0',
-      }}
     >
       {results.map((card) => {
         return (
-          <Flex
+          <Box
             key={card.id}
             mx='auto'
             mb={[4]}
             flexDirection='column'
-            alignItems='flex-start'
-            justifyContent='space-around'
-            width={['100%', '30%', '30%']}
+            width={['100%', '30%']}
             sx={{
               border: '2px solid #0b5ed7',
               borderRadius: '10px',
@@ -70,7 +63,7 @@ export default function Cards(props) {
               </Text>
               <Text fontSize={[3]}>{card.location.name}</Text>
             </Box>
-          </Flex>
+          </Box>
         );
       })}
     </Flex>

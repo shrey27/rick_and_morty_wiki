@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React, { useState, useEffect } from 'react';
 import Search from '../components/Search/Search';
 import Cards from '../components/Card/Cards';
-import Pagination from '../components/Pagination/Pagination';
+import PaginationBar from '../components/Pagination/Pagination';
 import Filter from '../components/Filter/Filter';
 import Navbar from '../components/Navbar/Navbar';
 import { Box, Flex } from 'rebass';
@@ -23,31 +23,44 @@ export default function Home(props) {
       <Search />
       <Flex
         mx={['auto']}
-        my={['1', '2', '3', '4']}
-        flexDirection={['column', 'column', 'row']}
-        alignItems={'center'}
-        justifyContent={'center'}
+        my={['1', '4']}
+        flexDirection={['column', 'row']}
         width={['82%']}
         sx={{
-          border: '2px solid black',
-          position: 'relative'
+          position: 'relative',
         }}
       >
-        <Filter />
-        <Box>
-          <Cards results={results}/>
-          <Pagination />
+        <Box
+          width={['100%', '30%']}
+          sx={{
+            position: 'absolute',
+            left: '0',
+          }}
+        >
+          <Filter />
+        </Box>
+        <Box
+          mt={['6', '1']}
+          pb={4}
+          width={['100%', '70%']}
+          sx={{
+            position: 'absolute',
+            right: '0',
+          }}
+        >
+          <Cards results={results} />
+          <PaginationBar />
         </Box>
       </Flex>
     </Box>
   );
 }
 
-export async function getStaticProps(){
+export async function getStaticProps() {
   let data = await fetch(api).then((res) => res.json());
   return {
     props: {
-      posts:data,
+      posts: data,
     },
   };
-};
+}
