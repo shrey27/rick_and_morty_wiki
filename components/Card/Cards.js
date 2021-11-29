@@ -51,7 +51,7 @@ export default function Cards(props) {
               src={card.image}
               sx={{
                 width: ['100%'],
-                borderRadius: 0,
+                borderRadius: '10px 10px 0 0',
               }}
             />
             <Box p={[2]}>

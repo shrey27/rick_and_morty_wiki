@@ -1,5 +1,4 @@
 import { Link, Flex, Button } from 'rebass';
-import styles from '../../styles/common.module.css';
 import ActiveLink from './ActiveLink';
 
 export default function Navbar() {
@@ -42,13 +41,18 @@ export default function Navbar() {
           href='/'
           fontSize={['1.3rem', '1.5rem', '1.5rem', '1.75rem']}
           py={['0.5rem', '1rem']}
+          color={'black'}
+          sx={{
+            textDecoration: 'none',
+          }}
         >
-          <a className={styles.logoStyle}>
-            Rick & Morty <span style={{ color: '#0d6efd' }}>Wiki</span>
-          </a>
+          Rick & Morty{' '}
+          <span style={{ color: '#0d6efd' }}>
+            Wiki
+          </span>
         </Link>
 
-        <Flex alignItems='center' justifyContent='center'>
+        <Flex alignItems='center' justifyContent='center' pt={2}>
           <ActiveLink activeClassName='active' href='/'>
             <a className='nav-link'>Characters</a>
           </ActiveLink>

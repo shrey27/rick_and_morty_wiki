@@ -15,7 +15,7 @@ export default function Search() {
         <Heading
           pb={['3']}
           fontFamily={'ubuntu'}
-          fontSize={[3, 4, 5, 6]}
+          fontSize={[5, 6]}
           fontWeight={500}
           color='rgba(0,0,0,0.80)'
         >
@@ -27,9 +27,9 @@ export default function Search() {
           name='search'
           type='text'
           placeholder='Search for Characters'
-          width={['80%']}
+          width={['100%', '80%']}
+          fontSize={['0.9rem', '1rem']}
           sx={{
-            fontSize: '1rem',
             outline: 'none',
             padding: '0.75rem 1rem',
             borderRadius: '7px',
