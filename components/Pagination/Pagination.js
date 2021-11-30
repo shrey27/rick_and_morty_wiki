@@ -37,7 +37,7 @@ export default function PaginationBar(){
         activeClassName={styles.active}
         activeLinkClassName={styles.activeLink}
         marginPagesDisplayed={isMobile ? 1 : 2}
-        pageRangeDisplayed={isMobile ? 1 : 2}
+        pageRangeDisplayed={isMobile ? 1 : 3}
         pageCount={42}
         onPageChange={handlePageChange}
         pageClassName={styles.pageItem}
