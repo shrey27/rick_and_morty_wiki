@@ -78,9 +78,21 @@ active li tag so it needs to be styled separately */
 /* for active li and a tag element padding of both li and a tag has to be changed 
 to display border bottom properly */
 
-@media (max-width:576px){
-  .prev, .next{
-    display: none;
+@media (max-width: 576px) {
+  .prev,
+  .next {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+  }
+  .pageItem {
+    padding: 0.25rem 0.75rem;
+    margin: 0 0.5rem;
+  }
+  .pageLink.activeLink {
+    font-weight: 400;
+    padding: 0 0.75rem 0.80rem 0.75rem;
+    border-bottom: 2px solid #0d6efd;
   }
 }
 
