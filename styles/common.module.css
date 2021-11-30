@@ -27,6 +27,11 @@
   text-decoration: none;
   color: white;
 }
+.prev a:hover,
+.next a:hover {
+  text-decoration: none;
+  color: white;
+}
 /* button sare not needed in mobile view */
 .dispNone {
   display: none;
@@ -72,5 +77,11 @@ active li tag so it needs to be styled separately */
 /* Border bottom for the active page is made using padding and border-bottom */
 /* for active li and a tag element padding of both li and a tag has to be changed 
 to display border bottom properly */
+
+@media (max-width:576px){
+  .prev, .next{
+    display: none;
+  }
+}
 
 /* ******************************************************************************************** */

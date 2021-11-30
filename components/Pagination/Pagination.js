@@ -31,13 +31,13 @@ export default function PaginationBar(){
         className={styles.pagination}
         nextLabel='Next'
         //forcePage={pageNumber === 1 ? 0 : pageNumber - 1}
-        previousLabel='Previous'
-        previousClassName={`${isMobile ? styles.dispNone : styles.prev}`}
-        nextClassName={`${isMobile ? styles.dispNone : styles.next}`}
+        previousLabel='Prev'
+        previousClassName={styles.prev}
+        nextClassName={styles.next}
         activeClassName={styles.active}
         activeLinkClassName={styles.activeLink}
         marginPagesDisplayed={isMobile ? 1 : 2}
-        pageRangeDisplayed={isMobile ? 1 : 3}
+        pageRangeDisplayed={isMobile ? 1 : 2}
         pageCount={42}
         onPageChange={handlePageChange}
         pageClassName={styles.pageItem}
