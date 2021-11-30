@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Search from '../components/Search/Search';
 import Cards from '../components/Card/Cards';
 import PaginationBar from '../components/Pagination/Pagination';
@@ -7,11 +7,20 @@ import Filter from '../components/Filter/Filter';
 import Navbar from '../components/Navbar/Navbar';
 import { Box, Flex } from 'rebass';
 
-let api = `https://rickandmortyapi.com/api/character/?page=1`;
+let CHAR_API = `https://rickandmortyapi.com/api/character/?page=1`;
 
-export default function Home(props) {
-  let [fetchedData, updateFetchedData] = useState(props.posts);
+export default function Home({posts}) {
+  let [api, setApi] = useState(CHAR_API);
+  let [fetchedData, updateFetchedData] = useState(posts);
   let { info, results } = fetchedData;
+
+  useEffect(() => {
+    async function fetchData(){
+      let data = await fetch(api).then((res) => res.json());
+      updateFetchedData(data);
+    }
+  }, [api])
+
   return (
       <Box>
         <Head>
@@ -40,7 +49,7 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  let data = await fetch(api).then((res) => res.json());
+  let data = await fetch(CHAR_API).then((res) => res.json());
   return {
     props: {
       posts: data,
