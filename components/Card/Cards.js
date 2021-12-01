@@ -1,10 +1,10 @@
 import { Image, Flex, Box, Heading, Text } from 'rebass';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
 export default function Cards(props) {
   let { results } = props;
   const router = useRouter();
-  
+
   return (
     <Flex
       flexWrap={['no-wrap', 'wrap', 'wrap']}
@@ -14,7 +14,7 @@ export default function Cards(props) {
       {results.map((card) => {
         return (
           <Box
-            key={card.id} 
+            key={card.id}
             mx='auto'
             mb={[4]}
             flexDirection='column'
@@ -25,7 +25,7 @@ export default function Cards(props) {
               borderRadius: '10px',
               overflow: 'hidden',
               position: 'relative',
-              cursor:'pointer'
+              cursor: 'pointer',
             }}
           >
             <Box
@@ -53,7 +53,6 @@ export default function Cards(props) {
             <Image
               alt='image'
               src={card.image}
-              
               sx={{
                 width: ['100%'],
                 borderRadius: '10px 10px 0 0',

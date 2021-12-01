@@ -5,6 +5,10 @@ export default function Navbar() {
   return (
     <>
       <style jsx>{`
+        .nav-head {
+          text-decoration: none;
+          color:black;
+        }
         .nav-link {
           text-decoration: none;
           padding: 0rem 1rem 0.5rem;
@@ -46,10 +50,8 @@ export default function Navbar() {
             textDecoration: 'none',
           }}
         >
-          Rick & Morty{' '}
-          <span style={{ color: '#0d6efd' }}>
-            Wiki
-          </span>
+          <a className='nav-head'>Rick & Morty </a>
+          <span style={{ color: '#0d6efd' }}>Wiki</span>
         </Link>
 
         <Flex alignItems='center' justifyContent='center' pt={2}>
@@ -57,11 +59,11 @@ export default function Navbar() {
             <a className='nav-link'>Characters</a>
           </ActiveLink>
 
-          <ActiveLink activeClassName='active' href='/episodes'>
+          <ActiveLink activeClassName='active' href='/episode'>
             <a className='nav-link'>Episodes</a>
           </ActiveLink>
 
-          <ActiveLink activeClassName='active' href='/locations'>
+          <ActiveLink activeClassName='active' href='/location'>
             <a className='nav-link'>Locations</a>
           </ActiveLink>
         </Flex>
