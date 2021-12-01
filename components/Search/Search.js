@@ -1,7 +1,17 @@
 import { Flex, Heading } from 'rebass';
 import { Input } from '@rebass/forms';
 
-export default function Search() {
+export default function Search({ setSearchTerm }) {
+  const setSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+  const debounce = (func, time) => {
+    let timer;
+    return () => {
+      clearTimeout(timer);
+      timer = setTimeout(func, time);
+    };
+  };
   return (
     <>
       <Flex
@@ -29,6 +39,7 @@ export default function Search() {
           placeholder='Search for Characters'
           width={['100%', '80%']}
           fontSize={['0.9rem', '1rem']}
+          onKeyUp={(e) => debounce(setSearch(e), 500)}
           sx={{
             outline: 'none',
             padding: '0.75rem 1rem',

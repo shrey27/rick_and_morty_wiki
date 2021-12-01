@@ -4,7 +4,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import category from './category';
 
-export default function Filter() {
+export default function Filter({ setGender, setSpecies, setStatus }) {
   return (
     <Box>
       <Heading fontFamily={'ubuntu'} sx={{ textAlign: 'center' }}>
@@ -22,21 +22,58 @@ export default function Filter() {
       >
         Clear filters
       </Button>
+
       <Accordion defaultActiveKey='Status'>
-        {category.map((elem) => {
-          return (
-            <Accordion.Item eventKey={elem.name} key={elem.id}>
-              <Accordion.Header>{elem.name}</Accordion.Header>
-              <Accordion.Body>
-                <Flex flexWrap={'wrap'} p={2}>
-                  {elem.options.map((op) => {
-                    return <FilterOption key={op + elem.id} optionName={op} />;
-                  })}
-                </Flex>
-              </Accordion.Body>
-            </Accordion.Item>
-          );
-        })}
+        <Accordion.Item eventKey='Status'>
+          <Accordion.Header>Status</Accordion.Header>
+          <Accordion.Body>
+            <Flex flexWrap={'wrap'} p={2}>
+              {category[0].options.map((op) => {
+                return (
+                  <FilterOption
+                    key={op + category[0].id}
+                    optionName={op}
+                   
+                  />
+                );
+              })}
+            </Flex>
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey='Species'>
+          <Accordion.Header>Species</Accordion.Header>
+          <Accordion.Body>
+            <Flex flexWrap={'wrap'} p={2}>
+              {category[1].options.map((op) => {
+                return (
+                  <FilterOption
+                    key={op + category[1].id}
+                    optionName={op}
+                    
+                  />
+                );
+              })}
+            </Flex>
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey='Gender'>
+          <Accordion.Header>Gender</Accordion.Header>
+          <Accordion.Body>
+            <Flex flexWrap={'wrap'} p={2}>
+              {category[2].options.map((op) => {
+                return (
+                  <FilterOption
+                    key={op + category[2].id}
+                    optionName={op}
+                    
+                  />
+                );
+              })}
+            </Flex>
+          </Accordion.Body>
+        </Accordion.Item>
       </Accordion>
     </Box>
   );
