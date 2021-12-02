@@ -2,11 +2,11 @@ import Head from 'next/head';
 import React, { useState, useEffect } from 'react';
 import Search from '../components/Search/Search';
 import Cards from '../components/Card/Cards';
+import Empty from '../components/Card/Cards';
 import PaginationBar from '../components/Pagination/Pagination';
 import Filter from '../components/Filter/Filter';
 import Navbar from '../components/Navbar/Navbar';
 import { Box, Flex } from 'rebass';
-import { useRouter } from 'next/router';
 
 let PAGE_API = `https://rickandmortyapi.com/api/character/`;
 
@@ -17,6 +17,7 @@ export default function Home({ posts = [] }) {
   let [status, setStatus] = useState('');
   let [gender, setGender] = useState('');
   let [species, setSpecies] = useState('');
+
   let { info, results = [] } = fetchedData;
 
   let api =
@@ -25,7 +26,9 @@ export default function Home({ posts = [] }) {
 
   useEffect(() => {
     (async function () {
-      let data = await fetch(api).then((res) => res.json());
+      let data = await fetch(api)
+      .then((res) => res.json())
+      .catch(err => console.log(err));
       updateFetchedData(data);
     })();
   }, [api]);
@@ -46,10 +49,10 @@ export default function Home({ posts = [] }) {
         width={'85%'}
       >
         <Box width={['100%', '25%']}>
-          <Filter 
-            setGender={setGender} 
-            setStatus={setStatus} 
-            setSpecies={setSpecies} 
+          <Filter
+            setGender={setGender}
+            setStatus={setStatus}
+            setSpecies={setSpecies}
             updatePageNumber={updatePageNumber}
           />
         </Box>

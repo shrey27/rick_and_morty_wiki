@@ -21,9 +21,9 @@ export default function FilterOption({
         onClick={handleClick}
       />
       <span className={styles.filterName}>{optionName}</span>
-      <button className={styles.filterBtn} onClick={() => setFunction('')}>
+      {/* <button className={styles.filterBtn} onClick={() => setFunction('')}>
         X
-      </button>
+      </button> */}
     </div>
   );
 }

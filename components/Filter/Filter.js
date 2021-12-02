@@ -37,7 +37,7 @@ export default function Filter({ setGender, setSpecies, setStatus, updatePageNum
         <Accordion.Item eventKey='Status'>
           <Accordion.Header>Status</Accordion.Header>
           <Accordion.Body>
-            <Flex flexWrap={'wrap'} p={2}>
+            <Flex flexWrap={'wrap'}>
               {category[0].options.map((op) => {
                 return (
                   <FilterOption
@@ -56,7 +56,7 @@ export default function Filter({ setGender, setSpecies, setStatus, updatePageNum
         <Accordion.Item eventKey='Species'>
           <Accordion.Header>Species</Accordion.Header>
           <Accordion.Body>
-            <Flex flexWrap={'wrap'} p={2}>
+            <Flex flexWrap={'wrap'}>
               {category[1].options.map((op) => {
                 return (
                   <FilterOption
@@ -75,7 +75,7 @@ export default function Filter({ setGender, setSpecies, setStatus, updatePageNum
         <Accordion.Item eventKey='Gender'>
           <Accordion.Header>Gender</Accordion.Header>
           <Accordion.Body>
-            <Flex flexWrap={'wrap'} p={2}>
+            <Flex flexWrap={'wrap'}>
               {category[2].options.map((op) => {
                 return (
                   <FilterOption
