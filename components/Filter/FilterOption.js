@@ -1,26 +1,29 @@
-import { useState } from 'react';
-import { Box, Text } from 'rebass';
+import styles from '../../styles/common.module.css';
 
-export default function FilterOption({ optionName }) {
-  
+export default function FilterOption({
+  optionName,
+  name,
+  setFunction,
+  updatePageNumber,
+}) {
+  const handleClick = (e) => {
+    setFunction(e.target.value);
+    updatePageNumber(1);
+  };
   return (
-    <Box
-      p={[2]}
-      m={2}
-      width={'fit-content'}
-      backgroundColor={'white'}
-      sx={{
-        border: '1px solid #0d6efd',
-        borderRadius: '5px',
-      }}
-    >
-      <Text
-        fontSize='2'
-        fontFamily={'ubuntu'}
-        color={'#0d6efd'}
-      >
-        {optionName}
-      </Text>
-    </Box>
+    <div className={styles.filterBox}>
+      <input
+        type='radio'
+        name={name}
+        className={styles.filterInput}
+        value={optionName}
+        id={optionName}
+        onClick={handleClick}
+      />
+      <span className={styles.filterName}>{optionName}</span>
+      <button className={styles.filterBtn} onClick={() => setFunction('')}>
+        X
+      </button>
+    </div>
   );
 }

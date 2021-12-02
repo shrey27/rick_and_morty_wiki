@@ -2,7 +2,7 @@ const category = [
   {
     id: '_00',
     eventKey: 0,
-    name: 'Status',
+    name: 'Status', 
     options: ['Dead', 'Alive', 'Unknown'],
   },
   {

@@ -101,3 +101,45 @@ to display border bottom properly */
   }
 }
 /* ******************************************************************************************** */
+
+/* *************************************** Filter Button ************************************** */
+.filterBox {
+  margin: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  width: fit-content;
+}
+.filterInput {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.filterName {
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  font-family: 'ubuntu';
+  color: #0d6efd;
+  border-radius: 5px;
+}
+.filterBtn {
+  border: none;
+  background-color: white;
+  opacity: 0;
+  cursor:progress;
+}
+.filterBtn:hover{
+  background-color: red;
+}
+.filterInput:checked ~ .filterBtn {
+  opacity: 1;
+}
+.filterInput:checked ~ .filterName {
+  background-color: #0d6efd;
+  color: white;
+}
+
+/* ******************************************************************************************** */

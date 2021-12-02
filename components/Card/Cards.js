@@ -1,5 +1,6 @@
 import { Image, Flex, Box, Heading, Text } from 'rebass';
 import { useRouter } from 'next/router';
+import { isMobile } from 'react-device-detect';
 
 export default function Cards(props) {
   let { results } = props;
@@ -45,7 +46,6 @@ export default function Cards(props) {
                 position: 'absolute',
                 top: 2,
                 right: 2,
-                zIndex: 100,
               }}
             >
               {card.status}

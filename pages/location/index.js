@@ -2,7 +2,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Head from 'next/head';
 import { Box, Heading, Text, Flex } from 'rebass';
 import Cards from '../../components/Card/Cards';
-// import Dropdown from '../../components/Filter/Dropdown';
+import Dropdown from '../../components/Filter/Dropdown';
 import { useState, useEffect } from 'react';
 
 let LOCATION_API = `https://rickandmortyapi.com/api/location/`;
@@ -71,7 +71,7 @@ export default function Locations({ count }) {
         width={'85%'}
       >
         <Box width={['100%', '25%']}>
-          {/* <Dropdown name={'Location'} count={count} setLocation={setLocation}/> */}
+          <Dropdown name={'Location'} count={count} setFunction={setLocation}/>
         </Box>
         <Box mt={['4', '1']} pb={4} width={['100%', '75%']}>
           <Cards results={results} />

@@ -46,7 +46,12 @@ export default function Home({ posts = [] }) {
         width={'85%'}
       >
         <Box width={['100%', '25%']}>
-          <Filter />
+          <Filter 
+            setGender={setGender} 
+            setStatus={setStatus} 
+            setSpecies={setSpecies} 
+            updatePageNumber={updatePageNumber}
+          />
         </Box>
         <Box mt={['4', '1']} pb={4} width={['100%', '75%']}>
           <Cards results={results} />

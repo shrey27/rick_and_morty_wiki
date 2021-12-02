@@ -2,12 +2,13 @@ import Navbar from '../../components/Navbar/Navbar';
 import Head from 'next/head';
 import { Box, Heading, Text, Flex } from 'rebass';
 import Cards from '../../components/Card/Cards';
-// import Dropdown from '../../components/Filter/Dropdown';
+import Dropdown from '../../components/Filter/Dropdown';
 import { useState, useEffect } from 'react';
 
 let EPISODE_API = `https://rickandmortyapi.com/api/episode/`;
 
-export default function Episodes({ count }) {
+export default function Episodes(props) {
+  let {count} = props;
   let [fetchedData, setFetchedData] = useState([]);
   let [results, setResults] = useState([]);
   let [episode, setEpisode] = useState(1);
@@ -62,7 +63,7 @@ export default function Episodes({ count }) {
         width={'85%'}
       >
         <Box width={['100%', '25%']}>
-          {/* <Dropdown name={'Episode'} count={count} setEpisode={setEpisode}/> */}
+          <Dropdown name={'Episode'} count={count} setFunction={setEpisode}/>
         </Box>
         <Box mt={['4', '1']} pb={4} width={['100%', '75%']}>
           <Cards results={results} />
@@ -77,7 +78,7 @@ export async function getStaticProps() {
   console.log('data.info.count', data.info.count);
   return {
     props: {
-      count: data.info.count,
+      count: data.info.count
     },
   };
 }
