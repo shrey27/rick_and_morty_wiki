@@ -2,36 +2,48 @@ import Head from 'next/head';
 import React, { useState, useEffect } from 'react';
 import Search from '../components/Search/Search';
 import Cards from '../components/Card/Cards';
-import Empty from '../components/Card/Cards';
+import Loading from '../components/Card/Cards';
+import Error from '../components/Card/Cards';
 import PaginationBar from '../components/Pagination/Pagination';
 import Filter from '../components/Filter/Filter';
 import Navbar from '../components/Navbar/Navbar';
 import { Box, Flex } from 'rebass';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCall } from '../Redux/actionCreator';
 
 let PAGE_API = `https://rickandmortyapi.com/api/character/`;
 
-export default function Home({ posts = [] }) {
+export default function Home() {
+  let dispatch = useDispatch();
+  let fetched = useSelector((state) => state.apiResp);
+  let { fetchedData, loading, error } = fetched;
+
+  // let error = useSelector((state) => state.apiResp.error);
+  // let [fetchedData, updateFetchedData] = useState(posts);
+  // let { info, results = [] } = fetchedData;
+
   let [pageNumber, updatePageNumber] = useState(1);
-  let [fetchedData, updateFetchedData] = useState(posts);
   let [searchTerm, setSearchTerm] = useState('');
   let [status, setStatus] = useState('');
   let [gender, setGender] = useState('');
   let [species, setSpecies] = useState('');
-
-  let { info, results = [] } = fetchedData;
 
   let api =
     PAGE_API +
     `?page=${pageNumber}&name=${searchTerm}&status=${status}&gender=${gender}&species=${species}`;
 
   useEffect(() => {
-    (async function () {
-      let data = await fetch(api)
-      .then((res) => res.json())
-      .catch(err => console.log(err));
-      updateFetchedData(data);
-    })();
-  }, [api]);
+    dispatch(fetchCall(api));
+  }, [dispatch, api]);
+
+  // useEffect(() => {
+  //   (async function () {
+  //     let data = await fetch(api)
+  //       .then((res) => res.json())
+  //       .catch((err) => console.log(err));
+  //     updateFetchedData(data);
+  //   })();
+  // }, [api]);
 
   return (
     <Box>
@@ -57,9 +69,13 @@ export default function Home({ posts = [] }) {
           />
         </Box>
         <Box mt={['4', '1']} pb={4} width={['100%', '75%']}>
-          <Cards results={results} />
+          {error ? (
+            <Error error={error} />
+          ) : (
+            loading ? <Loading/> : <Cards results={fetchedData?.results} />
+          )}
           <PaginationBar
-            info={info}
+            info={fetchedData?.info}
             pageNumber={pageNumber}
             updatePageNumber={updatePageNumber}
           />
