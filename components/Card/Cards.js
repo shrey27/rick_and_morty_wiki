@@ -1,9 +1,16 @@
 import { Image, Flex, Box, Heading, Text } from 'rebass';
 import { useRouter } from 'next/router';
+import Loading from './Loading';
+import { useState, useEffect } from 'react';
 
 export default function Cards(props) {
+  let [empty, setEmpty] = useState(false);
   let { results } = props;
   const router = useRouter();
+
+  useEffect(() => {
+    setTimeout(() => setEmpty(results ? false : true), 2000);
+  }, [results]);
 
   return (
     <Flex
@@ -71,11 +78,7 @@ export default function Cards(props) {
           );
         })
       ) : (
-        <Box mx={['auto']}>
-          <Text color={'#d9262e'} fontSize={4}>
-            Oops! Your have reached a dead end
-          </Text>
-        </Box>
+        <Loading empty={empty} />
       )}
     </Flex>
   );

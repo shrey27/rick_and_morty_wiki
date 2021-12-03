@@ -72,7 +72,7 @@ export default function Home() {
           {error ? (
             <Error error={error} />
           ) : (
-            loading ? <Loading/> : <Cards results={fetchedData?.results} />
+            <Cards results={fetchedData?.results} loading={loading}/>
           )}
           <PaginationBar
             info={fetchedData?.info}
