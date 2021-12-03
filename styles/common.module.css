@@ -7,6 +7,7 @@
   justify-content: center;
   margin: 2rem;
 }
+
 /* previous and next buttons  */
 .prev,
 .next {
@@ -38,12 +39,15 @@
 }
 
 /* li tag or individual page tag i.e. 1,2...42 */
-.pageItem {
+.pagination li {
   padding: 0.5rem 0.95rem;
   margin: 0 0.5rem;
   border: 1px solid #e8eaeb;
   border-radius: 5px;
   transition: all 300ms;
+}
+.pagination li::marker{
+  color:white;
 }
 .pageItem:hover {
   background-color: #e8eaeb;

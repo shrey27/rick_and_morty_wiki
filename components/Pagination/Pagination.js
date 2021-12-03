@@ -9,24 +9,6 @@ export default function PaginationBar({info, pageNumber, updatePageNumber}){
 
   return (
     <>
-      <style jsx>
-        {`
-          @media (max-width: 768px) {
-            .pagination {
-              font-size: 2px;
-            }
-            .next,
-            .prev {
-              display: none;
-            }
-          }
-          @media (max-width: 768px) {
-            .pagination {
-              font-size: 14px;
-            }
-          }
-        `}
-      </style>
       <ReactPaginate
         className={styles.pagination}
         nextLabel='Next'
