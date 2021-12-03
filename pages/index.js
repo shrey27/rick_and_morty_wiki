@@ -18,7 +18,7 @@ export default function Home({ posts = [] }) {
   let [gender, setGender] = useState('');
   let [species, setSpecies] = useState('');
 
-  let { info, results = [] } = fetchedData;
+  let { info, results } = fetchedData;
 
   let api =
     PAGE_API +
@@ -27,8 +27,8 @@ export default function Home({ posts = [] }) {
   useEffect(() => {
     (async function () {
       let data = await fetch(api)
-      .then((res) => res.json())
-      .catch(err => console.log(err));
+        .then((res) => res.json())
+        .catch((err) => console.log(err));
       updateFetchedData(data);
     })();
   }, [api]);
@@ -57,11 +57,7 @@ export default function Home({ posts = [] }) {
           />
         </Box>
         <Box mt={['4', '1']} pb={4} width={['100%', '75%']}>
-          {error ? (
-            <Error error={error} />
-          ) : (
-            <Cards results={fetchedData?.results} loading={loading}/>
-          )}
+          <Cards results={results} />
           <PaginationBar
             info={info}
             pageNumber={pageNumber}

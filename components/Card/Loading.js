@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Loading({ empty }) {
   return (
     <Box mx={['auto']}>
-      <Text color={'#d9262e'} fontSize={4}>
+      <Text color={'#d9262e'} fontSize={[2,4]}>
         {empty ? (
           'Oops! Your have reached a dead end'
         ) : (
