@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React, { useState, useEffect } from 'react';
 import Search from '../components/Search/Search';
 import Cards from '../components/Card/Cards';
-import Empty from '../components/Card/Cards';
+import Error from '../components/Card/Cards';
 import PaginationBar from '../components/Pagination/Pagination';
 import Filter from '../components/Filter/Filter';
 import Navbar from '../components/Navbar/Navbar';
@@ -57,7 +57,11 @@ export default function Home({ posts = [] }) {
           />
         </Box>
         <Box mt={['4', '1']} pb={4} width={['100%', '75%']}>
-          <Cards results={results} />
+          {error ? (
+            <Error error={error} />
+          ) : (
+            <Cards results={fetchedData?.results} loading={loading}/>
+          )}
           <PaginationBar
             info={info}
             pageNumber={pageNumber}
