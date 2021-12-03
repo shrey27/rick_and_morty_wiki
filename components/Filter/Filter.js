@@ -15,7 +15,7 @@ export default function Filter({ setGender, setSpecies, setStatus, updatePageNum
   }
 
   return (
-    <Box>
+    <Box mb={4}>
       <Heading fontFamily={'ubuntu'} sx={{ textAlign: 'center' }}>
         Filters
       </Heading>

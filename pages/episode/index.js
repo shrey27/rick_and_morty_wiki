@@ -75,7 +75,7 @@ export default function Episodes(props) {
 
 export async function getStaticProps() {
   let data = await fetch(EPISODE_API).then((res) => res.json());
-  console.log('data.info.count', data.info.count);
+  //console.log('data.info.count', data.info.count);
   return {
     props: {
       count: data.info.count

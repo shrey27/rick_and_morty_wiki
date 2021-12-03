@@ -35,7 +35,7 @@ export default function Navbar() {
       `}</style>
       <Flex
         px={[1, 6]}
-        py={[3]}
+        py={[2]}
         flexDirection={['column', 'column', 'column', 'row']}
         alignItems={['center']}
         justifyContent='space-between'
