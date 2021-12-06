@@ -9,7 +9,7 @@ export default function Cards(props) {
   const router = useRouter();
 
   useEffect(() => {
-    setTimeout(() => setEmpty(results ? false : true), 2000);
+    setEmpty(results ? false : true);
   }, [results]);
 
   return (
